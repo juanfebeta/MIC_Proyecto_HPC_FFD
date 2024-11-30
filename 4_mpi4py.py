@@ -49,14 +49,14 @@ def main():
         print(f"Starting MPI Dotplot (Total processes: {size})")
 
         # Read first sequence
-        with open('../archivos_dotplot/elemento1.fasta', 'r') as file:
+        with open('./archivos_dotplot/elemento1.fasta', 'r') as file:
             seq1 = file.read()
 
         # Remove the first line and line breaks
         seq1 = ''.join(seq1.split('\n')[1:])
 
         # Read second sequence
-        with open('../archivos_dotplot/elemento2.fasta', 'r') as file:
+        with open('./archivos_dotplot/elemento2.fasta', 'r') as file:
             seq2 = file.read()
 
         # Remove the first line and line breaks

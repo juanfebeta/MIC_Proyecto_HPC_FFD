@@ -43,7 +43,7 @@ def plot_dotplot(result_filename, seq1_len, seq2_len):
     plt.xlabel("Seq2")
     plt.ylabel("Seq1")
     plt.imshow(result_map[:500,:500], cmap='binary', aspect='auto')
-    plt.savefig("ResultadoTHR.png")
+    plt.savefig("./Resultados/ResultadoTHR_TPB.png")
 
 def main():
     begin = time.time()

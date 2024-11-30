@@ -34,13 +34,13 @@ if __name__ == '__main__':
     begin = time.time()
     print(datetime.today())
 
-    with open('../archivos_dotplot/elemento1.fasta', 'r') as file:
+    with open('./archivos_dotplot/elemento1.fasta', 'r') as file:
         seq1 = file.read()
 
     # Remove the first line and line breaks
     seq1 = ''.join(seq1.split('\n')[1:])
 
-    with open('../archivos_dotplot/elemento2.fasta', 'r') as file:
+    with open('./archivos_dotplot/elemento2.fasta', 'r') as file:
         seq2 = file.read()
 
     # Remove the first line and line breaks
