@@ -31,7 +31,7 @@ def plot_dotplot(result_filename, seq1_len, seq2_len):
 
 if __name__ == '__main__':
     
-    begin = time.time()
+    tig = time.time()
     print(datetime.today())
 
     with open('./archivos_dotplot/elemento1.fasta', 'r') as file:
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     num_chunks=10
 
     # Create a memory-mapped file to store the result
-    result_filename = './dotplot_result.dat'
+    result_filename = './ArchivosDAT/dotplot_result.dat'
     result_map = np.memmap(result_filename, dtype='bool', mode='w+', shape=(seq1_len, seq2_len))
 
     # Split seq1 into chunks
@@ -72,6 +72,7 @@ if __name__ == '__main__':
     processes = []
 
     # Create processes to compute outer equality
+    begin = time.time()
     for i in range(num_chunks):
         start_idx = i * chunk_size
         end_idx = start_idx + chunk_size if i != num_chunks - 1 else seq1_len
@@ -99,4 +100,4 @@ if __name__ == '__main__':
     
     end = time.time()
     print(datetime.today())
-    print(f"Tiempo total de ejecución: {end-begin} segundos")
+    print(f"Tiempo total de ejecución: {end-tig} segundos")

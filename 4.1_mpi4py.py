@@ -1,4 +1,4 @@
-#mpiexec -n 10 python 4_mpi4py.py
+#mpiexec -n 10 python 4.1_mpi4py.py
 
 from mpi4py import MPI
 import numpy as np
@@ -40,6 +40,7 @@ def plot_dotplot(result_filename, seq1_len, seq2_len):
     plt.savefig("./Resultados/ResultadoMPI.png")
 
 def main():
+    tig = time.time()
     # Initialize MPI
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
@@ -47,7 +48,7 @@ def main():
 
     # Root process (rank 0) handles sequence loading and distribution
     if rank == 0:
-        begin = time.time()
+        
         print(f"Starting MPI Dotplot (Total processes: {size})")
 
         # Read first sequence
@@ -78,7 +79,7 @@ def main():
         seq2_len = len(seq2)
 
         # Create a memory-mapped file to store the result
-        result_filename = './dotplot_result_mpi.dat'
+        result_filename = './ArchivosDAT/dotplot_result_mpi.dat'
         result_map = np.memmap(result_filename, dtype='bool', mode='w+', shape=(seq1_len, seq2_len))
 
         # Calculate chunk sizes for distribution
@@ -92,6 +93,7 @@ def main():
         chunk_size = seq1_len // num_workers
 
         # Distribute sequence chunks to worker processes
+        begin = time.time()
         for i in range(1, 10):  # Explicitly use 1-9 as worker ranks
             start_idx = (i-1) * chunk_size
             end_idx = start_idx + chunk_size if i != 9 else seq1_len
@@ -114,8 +116,8 @@ def main():
         # Cleanup (close the memory-mapped file)
         del result_map
         
-        total_end = time.time()
-        print(f"Total execution time: {total_end-begin} seconds")
+        end = time.time()
+        print(f"Total execution time: {end-tig} seconds")
 
     else:
         # Worker processes

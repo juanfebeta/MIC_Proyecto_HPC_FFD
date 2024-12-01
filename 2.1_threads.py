@@ -46,18 +46,18 @@ def plot_dotplot(result_filename, seq1_len, seq2_len):
     plt.savefig("./Resultados/ResultadoTHR_TPB.png")
 
 def main():
-    begin = time.time()
+    tig = time.time()
     print(datetime.today())
 
     # Read first sequence
-    with open('../archivos_dotplot/elemento1.fasta', 'r') as file:
+    with open('./archivos_dotplot/elemento1.fasta', 'r') as file:
         seq1 = file.read()
 
     # Remove the first line and line breaks
     seq1 = ''.join(seq1.split('\n')[1:])
 
     # Read second sequence
-    with open('../archivos_dotplot/elemento2.fasta', 'r') as file:
+    with open('./archivos_dotplot/elemento2.fasta', 'r') as file:
         seq2 = file.read()
 
     # Remove the first line and line breaks
@@ -80,7 +80,7 @@ def main():
     num_threads = 10
 
     # Create a memory-mapped file to store the result
-    result_filename = './dotplot_result_thread.dat'
+    result_filename = './ArchivosDAT/dotplot_result_thread.dat'
     result_map = np.memmap(result_filename, dtype='bool', mode='w+', shape=(seq1_len, seq2_len))
 
     # Create a lock for thread-safe file writing
@@ -90,6 +90,7 @@ def main():
     chunk_size = seq1_len // num_threads
     threads = []
 
+    begin = time.time()
     # Create threads to compute outer equality
     for i in range(num_threads):
         start_idx = i * chunk_size
@@ -118,7 +119,7 @@ def main():
     
     end = time.time()
     print(datetime.today())
-    print(f"Tiempo total de ejecución: {end-begin} segundos")
+    print(f"Tiempo total de ejecución: {end-tig} segundos")
 
 if __name__ == '__main__':
     main()
