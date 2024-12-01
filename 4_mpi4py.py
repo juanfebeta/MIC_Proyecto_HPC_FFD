@@ -1,3 +1,5 @@
+#mpiexec -n 10 python 4_mpi4py.py
+
 from mpi4py import MPI
 import numpy as np
 import time
@@ -35,7 +37,7 @@ def plot_dotplot(result_filename, seq1_len, seq2_len):
     plt.xlabel("Seq2")
     plt.ylabel("Seq1")
     plt.imshow(result_map[:500,:500], cmap='binary', aspect='auto')
-    plt.savefig("ResultadoMPI.png")
+    plt.savefig("./Resultados/ResultadoMPI.png")
 
 def main():
     # Initialize MPI

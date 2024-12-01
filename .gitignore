@@ -3,6 +3,7 @@ dotplot_result_mpi.dat
 dotplot_result_thread.dat
 dotplot_result.dat
 dotplot_result_cuda.dat
+ResultadoMUL binary r.png
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,macos
