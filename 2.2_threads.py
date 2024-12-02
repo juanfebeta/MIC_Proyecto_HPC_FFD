@@ -73,7 +73,7 @@ kernel_45 = np.array([
 ], dtype=np.float32)
 
 # Parametrizar la cantidad de hilos
-num_hilos = 1  # Cambiar este valor para ajustar la cantidad de hilos
+num_hilos = 10  # Cambiar este valor para ajustar la cantidad de hilos
 
 # Dividir la imagen en segmentos horizontales según el número de hilos
 segmentos = np.array_split(imagen, num_hilos, axis=0)
