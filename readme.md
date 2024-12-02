@@ -41,5 +41,5 @@ Para modificar los datos de entrada, dirijase a las lineas correspondientes, rel
 En particular para la ejecucion de los archivos .py relacionados con MPI4PY, ejecute la siguiente linea de comandos:
 
 mpiexec -n 10 python 4.1_mpi4py.py
-mpiexec -n 10 python 4.2_mpi4py.py
 
+mpiexec -n 10 python 4.2_mpi4py.py
