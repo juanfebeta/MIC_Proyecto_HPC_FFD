@@ -4,6 +4,10 @@ ArchivosDAT
 Pipe
 elemento1.fasta
 elemento2.fasta
+Book1.xlsx
+~$Book1.xlsx
+Doc_Proyecto_HPC.pdf
+mpi_ls.py
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,macos
